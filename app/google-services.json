@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1037331924949",
+    "firebase_url": "https://ncpir-91aa3.firebaseio.com",
+    "project_id": "ncpir-91aa3",
+    "storage_bucket": "ncpir-91aa3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1037331924949:android:eca3a4882ba61363",
+        "android_client_info": {
+          "package_name": "in.inkers.ncpir"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1037331924949-p389b1n9mfh6138t2qa3u6mvid204lcv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfnxlqDZvXz1AiuY-_InEF9cZedTmamuk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

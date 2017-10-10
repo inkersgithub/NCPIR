@@ -29,7 +29,6 @@ public class AboutActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle(Html.fromHtml("<font color='#000000'>About us </font>"));
 
         if (!isConnected(AboutActivity.this)) {  //checks internet connection
             Intent intent = new Intent(this, ErrorActivity.class);

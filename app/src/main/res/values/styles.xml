@@ -6,8 +6,13 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:itemTextAppearance">@style/MenuItemTextAppearance</item>
     </style>
 
     <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar"/>
+
+    <style name="MenuItemTextAppearance">
+        <item name="android:textColor">@color/colorPrimaryDark</item> // replace this value with your desired menu item color.
+    </style>
 
 </resources>

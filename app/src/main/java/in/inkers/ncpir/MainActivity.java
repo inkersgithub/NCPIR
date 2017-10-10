@@ -140,4 +140,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CreditActivity.class);
         startActivity(intent);
     }
+
+    public void homeClick(MenuItem menuItem){
+        url = "http://www.jawaharlalcolleges.com/links";
+        webView.loadUrl(url);
+    }
 }
