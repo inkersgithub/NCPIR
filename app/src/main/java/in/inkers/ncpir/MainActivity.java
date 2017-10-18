@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
@@ -18,7 +20,9 @@ import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,6 +54,10 @@ public class MainActivity extends AppCompatActivity {
         webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
         webView.loadUrl(url);
 
+        Intent intent=getIntent();
+        String link=intent.getDataString();
+        webView.loadUrl(link);
+
         swipe.setColorSchemeResources(R.color.Black);
         swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -73,6 +81,30 @@ public class MainActivity extends AppCompatActivity {
         }
         else
             return false;
+    }
+    
+    Boolean exit = false;
+
+    @Override
+    public void onBackPressed() {
+        if (webView.canGoBack()) {
+            webView.goBack();
+            exit=false;
+        }
+        else {
+            if(exit)
+                System.exit(0);
+            else{
+                Toast.makeText(this,"Press BACK again to exit",Toast.LENGTH_SHORT).show();
+                this.exit=true;
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        exit=false;
+                    }
+                },3*1000);
+            }
+        }
     }
 
     private class MyBrowser extends WebViewClient {
@@ -107,24 +139,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) { //to load last page when
-        if (event.getAction() == KeyEvent.ACTION_DOWN) {    //when physical back button pressed
-            switch (keyCode) {                              //instead of closing app
-                case KeyEvent.KEYCODE_BACK:
-                    if (webView.canGoBack()) {
-                        webView.goBack();
-                    } else {
-                        finish();
-                    }
-                    return true;
-            }
-
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-
-
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
@@ -144,5 +158,29 @@ public class MainActivity extends AppCompatActivity {
     public void homeClick(MenuItem menuItem){
         url = "http://www.jawaharlalcolleges.com/links";
         webView.loadUrl(url);
+    }
+
+    public void exitClick(MenuItem menuItem){
+        AlertDialog.Builder dialog=new AlertDialog.Builder(MainActivity.this);
+        View dialogView=getLayoutInflater().inflate(R.layout.activity_exit_dialog,null);
+        Button exitButton=dialogView.findViewById(R.id.exitButton);
+        Button goBackButton=dialogView.findViewById(R.id.goBackButton);
+        dialog.setView(dialogView);
+        final AlertDialog aDialog=dialog.create();
+        aDialog.show();
+
+        exitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.exit(0);
+            }
+        });
+
+        goBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                aDialog.dismiss();
+            }
+        });
     }
 }
