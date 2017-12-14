@@ -7,7 +7,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Html;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;

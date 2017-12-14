@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SplashActivity"
+            android:name="in.inkers.ncpir.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,7 +23,7 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name="in.inkers.ncpir.MainActivity"
             android:screenOrientation="portrait">
 
             <intent-filter>
@@ -91,19 +91,22 @@
         </activity>
 
         <activity
-            android:name=".AboutActivity"
+            android:name="in.inkers.ncpir.AboutActivity"
             android:screenOrientation="portrait"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName="in.inkers.ncpir.MainActivity">
+        </activity>
 
         <activity
-            android:name=".CreditActivity"
+            android:name="in.inkers.ncpir.CreditActivity"
             android:screenOrientation="portrait"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName="in.inkers.ncpir.MainActivity">
+        </activity>
 
         <activity
-            android:name=".ErrorActivity"
+            android:name="in.inkers.ncpir.ErrorActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme"></activity>
+            android:theme="@style/SplashTheme">
+        </activity>
 
         <!--fcm-->
         <service android:name="in.inkers.ncpir.MyFirebaseMessagingService">

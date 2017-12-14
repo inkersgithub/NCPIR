@@ -15,6 +15,7 @@ import android.util.Log;
 
 import com.google.firebase.messaging.RemoteMessage;
 
+
 public class MyFirebaseMessagingService extends com.google.firebase.messaging.FirebaseMessagingService {
 
     private static final String TAG = "Android News App";
